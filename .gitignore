@@ -1,0 +1,7 @@
+# Ignore Terraform temp files and secrets
+*.lock.hcl
+*.lock.info
+*.tfstate*
+*.tfvars
+.terraform
+foundryvtt-docker
