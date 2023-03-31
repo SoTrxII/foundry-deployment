@@ -1,14 +1,39 @@
 variable "base_name" {
   description = "Base name to name all resources"
-  type = string
-  default = "test-foundryvtt"
+  type        = string
+  default     = "test-foundryvtt"
 }
 
 variable "location" {
   description = "Az region to put the resources into"
-  type = string
-  default = "France Central"
+  type        = string
+  default     = "France Central"
 }
+
+variable "min_replicas" {
+  description = "Minimum replication of the foundry VTT app"
+  type        = number
+  default     = 0
+}
+
+variable "max_replicas" {
+  description = "Maximum replication of the foundry VTT app"
+  type        = number
+  default     = 1
+}
+
+variable "cpu_per_replica" {
+  description = "Number of vCPU for each replication of the foundry app"
+  type        = number
+  default     = 2
+}
+
+variable "ram_per_replica" {
+  description = "Amount of RAM in GiB for each replication of the foundry app"
+  type        = string
+  default     = "4Gi"
+}
+
 
 variable "foundry_username" {
   description = "Login for the foundry website. Used to retrieve the last build version"
