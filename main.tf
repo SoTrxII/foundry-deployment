@@ -151,9 +151,13 @@ resource "azurerm_container_app" "foundry" {
       # when foundry tries to update the config.
       # As the config files aren't persisted in between session
       # we can just tell the container to ignore them 
+      # env {
+      #   name  = "CONTAINER_PRESERVE_CONFIG"
+      #   value = "true"
+      # }
       env {
-        name  = "CONTAINER_PRESERVE_CONFIG"
-        value = "true"
+        name  = "CONTAINER_PRESERVE_OWNER"
+        value = "/data"
       }
       env {
         name  = "TIMEZONE"
@@ -164,7 +168,7 @@ resource "azurerm_container_app" "foundry" {
       # by the log analytics workspace
       volume_mounts {
         name = "data"
-        path = "/data/Config"
+        path = "/data/Data"
       }
     }
 
