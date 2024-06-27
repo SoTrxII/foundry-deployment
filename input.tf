@@ -1,7 +1,7 @@
 variable "base_name" {
   description = "Base name to name all resources"
   type        = string
-  default     = "test-foundryvtt"
+  default     = "foundryvtt-prod"
 }
 
 variable "location" {
@@ -25,13 +25,13 @@ variable "max_replicas" {
 variable "cpu_per_replica" {
   description = "Number of vCPU for each replication of the foundry app"
   type        = number
-  default     = 2
+  default     = 4
 }
 
 variable "ram_per_replica" {
   description = "Amount of RAM in GiB for each replication of the foundry app"
   type        = string
-  default     = "4Gi"
+  default     = "8Gi"
 }
 
 

@@ -72,6 +72,10 @@ resource "azurerm_container_app_environment" "env" {
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   log_analytics_workspace_id = azurerm_log_analytics_workspace.analytics.id
+  workload_profile {
+    name = "Consumption"
+    workload_profile_type = "Consumption"
+  }
 }
 
 # Bind the created file share to the container apps environment
@@ -151,10 +155,10 @@ resource "azurerm_container_app" "foundry" {
       # when foundry tries to update the config.
       # As the config files aren't persisted in between session
       # we can just tell the container to ignore them 
-      # env {
-      #   name  = "CONTAINER_PRESERVE_CONFIG"
-      #   value = "true"
-      # }
+      env {
+        name  = "CONTAINER_PRESERVE_CONFIG"
+        value = "true"
+      }
       env {
         name  = "CONTAINER_PRESERVE_OWNER"
         value = "/data"
@@ -168,7 +172,7 @@ resource "azurerm_container_app" "foundry" {
       # by the log analytics workspace
       volume_mounts {
         name = "data"
-        path = "/data/Data"
+        path = "/data"
       }
     }
 
