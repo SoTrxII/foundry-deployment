@@ -2,8 +2,12 @@
 
 This code deploys Foundry VTT on Azure using Terraform.
 
-The main branch uses [Azure Container Apps](https://azure.microsoft.com/fr-fr/products/container-apps/) to deploy Foundry VTT in a serverless manner.
+## Content 
 
+This deployment will deploy the following resources:
+- The Foundry docker image will be deployed Azure Container Apps (default : 4 vcpu/8 Gio)
+- An Azure File Share to store the Foundry data
+- The Log Analytics workspace to store the logs
 
 ## Deploy
 
@@ -37,4 +41,23 @@ Then click on the `Save` button.
 
 
 ![Mount options](./resources/hotfix-mount.png)
+
+## Configuration
+
+The following variables can be set in the `creds.tfvars` file:
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| foundry_username | The username to access the Foundry VTT account | |
+| foundry_password | The password to access the Foundry VTT account | |
+| foundry_hostname | The hostname of the Foundry VTT account | |
+| foundry_tag | The tag to use for the Foundry VTT image | release |
+| foundry_admin_password | The password to access the Foundry VTT admin | |
+| base_name | The base name to name all resources | foundryvtt-prod |
+| location | The Azure region to put the resources into | France Central |
+| min_replicas | The minimum number of replicas for the Foundry VTT app | 0 |
+| max_replicas | The maximum number of replicas for the Foundry VTT app | 1 |
+| cpu_per_replica | The number of vCPUs for each replica of the Foundry VTT app | 4 |
+| ram_per_replica | The amount of RAM in GiB for each replica of the Foundry VTT app | 8Gi |
+
 
