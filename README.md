@@ -1,8 +1,8 @@
-# Foundry TTS on Azure
+# Foundrt TTS Azure deployment
 
-This sample shows how to deploys [Foundry VTT](https://foundryvtt.com/) on Microsoft Azure in a cost efficient manner.
+This code deploys Foundry VTT on Azure using Terraform.
 
-The main branch uses [Azure Container Apps](https://azure.microsoft.com/fr-fr/products/container-apps/) to deploy Foundry VTT in a serverless manner. Another branch, `app-services`, uses [Azure App Services](https://azure.microsoft.com/fr-fr/products/app-service/) instead, but isn't serverless. 
+The main branch uses [Azure Container Apps](https://azure.microsoft.com/fr-fr/products/container-apps/) to deploy Foundry VTT in a serverless manner.
 
 
 ## Deploy
