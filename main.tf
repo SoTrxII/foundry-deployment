@@ -124,7 +124,7 @@ resource "azurerm_container_app" "foundry" {
 
     container {
       name   = "foundry"
-      image  = "felddy/foundryvtt:release"
+      image  = "felddy/foundryvtt:${var.foundry_tag}"
       cpu    = var.cpu_per_replica
       memory = var.ram_per_replica
       env {

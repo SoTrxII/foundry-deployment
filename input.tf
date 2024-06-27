@@ -34,6 +34,11 @@ variable "ram_per_replica" {
   default     = "8Gi"
 }
 
+variable "foundry_tag" {
+  description = "Tag to use for the foundry image"
+  type        = string
+  default     = "release"
+}
 
 variable "foundry_username" {
   description = "Login for the foundry website. Used to retrieve the last build version"
